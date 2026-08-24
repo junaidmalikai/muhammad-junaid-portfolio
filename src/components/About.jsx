@@ -4,12 +4,13 @@ import { aboutContent } from '../data/portfolio'
 import { ScrollReveal } from './ui/SectionHeading'
 
 function BioText({ text }) {
-  const parts = text.split(/(n8n|Model Context Protocol \(MCP\))/g)
+  const highlights = new Set(['LangChain', 'LangGraph', 'n8n', 'Model Context Protocol (MCP)'])
+  const parts = text.split(/(LangChain|LangGraph|n8n|Model Context Protocol \(MCP\))/g)
 
   return (
     <p className="text-body leading-relaxed text-base md:text-lg">
       {parts.map((part, i) =>
-        part === 'n8n' || part === 'Model Context Protocol (MCP)' ? (
+        highlights.has(part) ? (
           <strong key={i} className="text-white font-semibold">
             {part}
           </strong>

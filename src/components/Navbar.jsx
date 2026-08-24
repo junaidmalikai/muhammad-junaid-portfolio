@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data/portfolio'
 
+function scrollToSection(href) {
+  const target = document.querySelector(href)
+  if (!target) return
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -20,7 +26,15 @@ export default function Navbar() {
     }
   }, [mobileOpen])
 
-  const handleNavClick = () => setMobileOpen(false)
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    if (mobileOpen) {
+      setMobileOpen(false)
+      window.setTimeout(() => scrollToSection(href), 350)
+    } else {
+      scrollToSection(href)
+    }
+  }
 
   return (
     <motion.header
@@ -34,6 +48,7 @@ export default function Navbar() {
       <nav className="section-container flex items-center justify-between h-14 sm:h-16 md:h-20 min-w-0">
         <a
           href="#hero"
+          onClick={(e) => handleNavClick(e, '#hero')}
           className="text-lg font-bold text-white hover:text-accent transition-colors flex-shrink-0"
         >
           MJ<span className="text-accent">.</span>
@@ -77,6 +92,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
             className="md:hidden bg-surface-raised/98 backdrop-blur-xl border-b border-white/5 overflow-hidden"
           >
             <ul className="section-container py-4 flex flex-col gap-3">
@@ -84,7 +100,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={handleNavClick}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="block text-body hover:text-white py-2 text-base"
                   >
                     {link.label}
@@ -92,7 +108,11 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-2">
-                <a href="#contact" onClick={handleNavClick} className="btn-primary w-full">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                  className="btn-primary w-full text-center"
+                >
                   Contact Me
                 </a>
               </li>

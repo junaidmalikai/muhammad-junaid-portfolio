@@ -17,7 +17,7 @@ export const siteConfig = {
 }
 
 export const aboutContent = {
-  bio: "I'm an AI Engineer and Python Developer who designs and builds LLM-powered applications and agentic AI systems — from multi-agent LangGraph platforms to production-ready RAG pipelines and FastAPI backends. Beyond building agents from scratch, I connect AI systems to the tools and workflows that make them useful in the real world — using n8n to orchestrate automation between AI outputs and business processes, and the Model Context Protocol (MCP) to give agents standardized, secure access to external tools and data sources. My goal: AI that doesn't just chat, but reasons, retrieves, acts, and automates.",
+  bio: "I'm an AI Engineer and Python Developer specializing in LLM-powered applications and agentic AI systems — from multi-agent architectures built with LangChain and LangGraph to production-ready RAG pipelines and scalable FastAPI backends. Beyond building agents from scratch, I focus on making AI systems genuinely useful in production: orchestrating automation between AI outputs and business workflows with n8n, and giving agents standardized, secure access to external tools and data through the Model Context Protocol (MCP). My goal is AI that doesn't just chat — it reasons, retrieves, acts, and automates.",
   philosophy: [
     'Reliable Architecture',
     'Intelligent Reasoning',

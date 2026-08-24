@@ -26,6 +26,16 @@
     @apply w-full max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  @media (min-width: 768px) {
+    section[id] {
+      scroll-margin-top: 6rem;
+    }
+  }
+
   .accent-gradient-text {
     @apply text-accent;
   }
