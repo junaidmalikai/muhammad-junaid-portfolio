@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion'
 import {
+  Sparkles,
   Bot,
-  Brain,
   Database,
   Workflow,
   Plug,
   Server,
-  Eye,
+  Layers,
 } from 'lucide-react'
 import { whatIBuild } from '../data/portfolio'
 import SectionHeading, { ScrollReveal } from './ui/SectionHeading'
 
-const iconMap = { Bot, Brain, Database, Workflow, Plug, Server, Eye }
+const iconMap = { Sparkles, Bot, Database, Workflow, Plug, Server, Layers }
 
 export default function WhatIBuild() {
   return (
@@ -21,10 +21,10 @@ export default function WhatIBuild() {
         <SectionHeading
           eyebrow="What I Build"
           title="End-to-End AI Solutions"
-          subtitle="From intelligent agents to production APIs — full-stack AI engineering."
+          subtitle="From generative apps and RAG to agents, APIs, and automation."
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {whatIBuild.map((item, index) => {
             const Icon = iconMap[item.icon]
             return (

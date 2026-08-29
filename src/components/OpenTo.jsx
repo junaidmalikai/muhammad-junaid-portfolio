@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
-import { openToRoles } from '../data/portfolio'
+import { openToRoles, siteConfig } from '../data/portfolio'
 import SectionHeading, { ScrollReveal } from './ui/SectionHeading'
 
 export default function OpenTo() {
@@ -8,9 +8,9 @@ export default function OpenTo() {
     <section id="open-to" className="py-20 md:py-28">
       <div className="section-container">
         <SectionHeading
-          eyebrow="Currently Open To"
+          eyebrow="Career Objective"
           title="Let's Work Together"
-          subtitle="Open to roles where I can build impactful AI-powered products."
+          subtitle={siteConfig.careerObjective}
         />
 
         <ScrollReveal>

@@ -9,10 +9,10 @@ export default function Skills() {
         <SectionHeading
           eyebrow="Skills"
           title="Technical Toolkit"
-          subtitle="Technologies and frameworks I use to build intelligent systems."
+          subtitle="Generative AI, backend, frontend, databases, and the tools I ship with."
         />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillGroups.map((group, groupIndex) => (
             <ScrollReveal key={group.category} delay={groupIndex * 0.08}>
               <motion.div

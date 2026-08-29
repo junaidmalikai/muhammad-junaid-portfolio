@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Mail } from 'lucide-react'
+import { ArrowDown, Mail, Github, Linkedin } from 'lucide-react'
 import { siteConfig } from '../data/portfolio'
 import { useTypewriter } from '../hooks/useTypewriter'
 import ParticleBackground from './ui/ParticleBackground'
@@ -28,7 +28,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full glass-card text-xs sm:text-sm text-body mb-4 sm:mb-6 w-fit"
         >
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse-slow flex-shrink-0" />
-          Available for AI Engineering roles
+          Available for Associate / Junior AI Engineer roles
         </motion.div>
 
         <motion.h1
@@ -70,7 +70,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-body text-sm sm:text-base lg:text-lg max-w-xl mb-6 sm:mb-8 leading-relaxed"
+          className="text-body text-sm sm:text-base lg:text-lg max-w-3xl mb-6 sm:mb-8 leading-relaxed"
         >
           {siteConfig.tagline}
         </motion.p>
@@ -79,10 +79,28 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
+          className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
         >
           <a href="#projects" className="btn-primary text-center">
             View Projects
+          </a>
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary text-center"
+          >
+            <Github size={18} />
+            GitHub
+          </a>
+          <a
+            href={siteConfig.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary text-center"
+          >
+            <Linkedin size={18} />
+            LinkedIn
           </a>
           <a href="#contact" className="btn-secondary text-center">
             <Mail size={18} />

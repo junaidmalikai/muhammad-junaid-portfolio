@@ -4,9 +4,11 @@ import { Mail, Linkedin, Github, Phone, Send, CheckCircle, AlertCircle, Loader2 
 import { siteConfig } from '../data/portfolio'
 import SectionHeading, { ScrollReveal } from './ui/SectionHeading'
 
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_FORM_ID
-  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
-  : null
+const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID?.trim()
+const useFormspree = Boolean(formspreeId) && formspreeId !== 'your_form_id_here'
+const CONTACT_ENDPOINT = useFormspree
+  ? `https://formspree.io/f/${formspreeId}`
+  : `https://formsubmit.co/ajax/${siteConfig.email}`
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' })
@@ -15,23 +17,17 @@ export default function Contact() {
 
   const handleChange = (e) => {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-    if (status === 'error') setStatus('idle')
+    if (status === 'error' || status === 'activate') setStatus('idle')
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!FORMSPREE_ENDPOINT) {
-      setStatus('error')
-      setErrorMessage('Formspree is not configured. Add VITE_FORMSPREE_FORM_ID to your .env file.')
-      return
-    }
-
     setStatus('sending')
     setErrorMessage('')
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,16 +38,29 @@ export default function Contact() {
           email: formState.email,
           message: formState.message,
           _subject: `Portfolio contact from ${formState.name}`,
+          _replyto: formState.email,
+          _captcha: 'false',
         }),
       })
 
-      if (response.ok) {
-        setStatus('success')
-        setFormState({ name: '', email: '', message: '' })
-      } else {
-        const data = await response.json().catch(() => ({}))
-        throw new Error(data.error || 'Something went wrong. Please try again.')
+      const data = await response.json().catch(() => ({}))
+      const payload = `${data.message || ''} ${data.error || ''}`.toLowerCase()
+      const needsActivation = payload.includes('activation') || payload.includes('activate form')
+
+      if (needsActivation) {
+        setStatus('activate')
+        return
       }
+
+      const failed =
+        !response.ok || data.success === false || data.success === 'false' || data.error
+
+      if (failed) {
+        throw new Error(data.error || data.message || 'Something went wrong. Please try again.')
+      }
+
+      setStatus('success')
+      setFormState({ name: '', email: '', message: '' })
     } catch (err) {
       setStatus('error')
       setErrorMessage(err.message || 'Failed to send message. Please try again.')
@@ -65,18 +74,18 @@ export default function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Get In Touch"
-          subtitle="Have a project in mind or want to discuss AI engineering? I'd love to hear from you."
+          subtitle="Email, phone, GitHub, LinkedIn — or send a message with the form."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto min-w-0">
           <ScrollReveal>
             <div className="glass-card p-6 sm:p-8 h-full flex flex-col justify-center min-w-0">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">
-                Let's build the next generation of AI-powered applications
+                Let's build practical AI-powered applications
               </h3>
               <p className="text-body mb-6 sm:mb-8 leading-relaxed">
-                Whether you need an AI agent, RAG system, or production FastAPI backend — I'm ready
-                to collaborate on meaningful projects.
+                Open to Associate / Junior AI Engineer roles working on Generative AI, RAG, LLMs,
+                AI Agents, Python, and FastAPI.
               </p>
 
               <div className="space-y-4 min-w-0">
@@ -209,6 +218,14 @@ export default function Contact() {
                 <p className="text-accent text-sm flex items-center gap-2">
                   <CheckCircle size={14} className="flex-shrink-0" />
                   Thanks! Your message was sent successfully. I'll get back to you soon.
+                </p>
+              )}
+
+              {status === 'activate' && (
+                <p className="text-accent text-sm flex items-start gap-2">
+                  <Mail size={14} className="flex-shrink-0 mt-0.5" />
+                  Check {siteConfig.email} for an &quot;Activate Form&quot; email, click the link,
+                  then submit again. This is a one-time step.
                 </p>
               )}
 

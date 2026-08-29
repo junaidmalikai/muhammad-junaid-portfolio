@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="text-center md:text-left min-w-0">
             <p className="text-white font-bold text-lg mb-1">{siteConfig.name}</p>
             <p className="text-body-muted text-sm max-w-md">
-              Let's build the next generation of AI-powered applications.
+              Associate AI Engineer — Generative AI, RAG, AI Agents, Python, FastAPI.
             </p>
           </div>
 

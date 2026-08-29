@@ -59,10 +59,21 @@ function ProjectLinkBadge({ href, type }) {
       ) : (
         <>
           <Github size={10} />
-          Code
+          GitHub
         </>
       )}
     </a>
+  )
+}
+
+function CaseStudyField({ label, children }) {
+  return (
+    <div>
+      <dt className="text-accent text-[11px] font-bold uppercase tracking-wider mb-1">
+        {label}
+      </dt>
+      <dd>{children}</dd>
+    </div>
   )
 }
 
@@ -78,7 +89,7 @@ export default function Projects() {
         <SectionHeading
           eyebrow="Featured Projects"
           title="Building Real AI Systems"
-          subtitle="Production-grade agents, RAG pipelines, and full-stack applications."
+          subtitle="Case studies — problem, approach, challenge, and result."
         />
 
         <ScrollReveal>
@@ -102,7 +113,7 @@ export default function Projects() {
 
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch min-w-0"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-stretch min-w-0"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project, index) => {
@@ -122,7 +133,9 @@ export default function Projects() {
                 >
                   <motion.article
                     whileHover={{ y: -6 }}
-                    className="glass-card p-5 sm:p-6 h-full min-h-[260px] flex flex-col group transition-all duration-300 hover:border-accent/30 min-w-0"
+                    className={`glass-card p-5 sm:p-6 h-full flex flex-col group transition-all duration-300 hover:border-accent/30 min-w-0 ${
+                      project.featured ? 'ring-1 ring-accent/10' : ''
+                    }`}
                   >
                     <div className="flex items-start gap-3 sm:gap-4 mb-4 flex-shrink-0 min-w-0">
                       <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0 group-hover:border-accent/40 transition-colors">
@@ -138,9 +151,24 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <p className="text-body text-sm leading-6 mb-4 flex-1 min-h-[3rem]">
+                    <p className="text-body text-sm leading-6 mb-4">
                       {project.description}
                     </p>
+
+                    <dl className="space-y-3 mb-4 flex-1">
+                      <CaseStudyField label="Problem">
+                        <p className="text-body text-sm leading-relaxed">{project.problem}</p>
+                      </CaseStudyField>
+                      <CaseStudyField label="Approach">
+                        <p className="text-body text-sm leading-relaxed">{project.approach}</p>
+                      </CaseStudyField>
+                      <CaseStudyField label="Challenge">
+                        <p className="text-body text-sm leading-relaxed">{project.challenge}</p>
+                      </CaseStudyField>
+                      <CaseStudyField label="Result">
+                        <p className="text-body text-sm leading-relaxed">{project.result}</p>
+                      </CaseStudyField>
+                    </dl>
 
                     {(isLive || isCode) && (
                       <div className="flex flex-wrap items-center gap-2 mb-4 flex-shrink-0">
