@@ -1,56 +1,59 @@
-import { aboutContent } from '../data/portfolio'
+import { aboutContent, whatIBuild } from '../data/portfolio'
 import { ScrollReveal } from './ui/SectionHeading'
-
-function BioText({ text }) {
-  const highlights = new Set([
-    'Computer Science',
-    'CGPA 3.89',
-    'MS in Artificial Intelligence',
-    'Generative AI',
-    'RAG systems',
-    'LLM applications',
-    'AI Agents',
-    'machine learning',
-    'intelligent automation',
-    'Associate/Junior AI Engineer',
-  ])
-  const pattern =
-    /(Computer Science|CGPA 3\.89|MS in Artificial Intelligence|Generative AI|RAG systems|LLM applications|AI Agents|machine learning|intelligent automation|Associate\/Junior AI Engineer)/g
-  const parts = text.split(pattern)
-
-  return (
-    <p className="text-body leading-relaxed text-base md:text-lg">
-      {parts.map((part, i) =>
-        highlights.has(part) ? (
-          <strong key={i} className="text-white font-semibold">
-            {part}
-          </strong>
-        ) : (
-          part
-        ),
-      )}
-    </p>
-  )
-}
+import Icon from './ui/Icon'
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 relative">
+    <section id="about" className="py-16 sm:py-20 md:py-28 relative" aria-labelledby="about-heading">
       <div className="section-container max-w-4xl">
         <ScrollReveal>
-          <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
-            About Me
+          <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3 inline-flex items-center gap-2">
+            <Icon name="User" size={14} aria-hidden="true" />
+            About
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            CS Graduate · MS AI · Building Real-World AI
+          <h2 id="about-heading" className="text-3xl sm:text-4xl font-bold text-white mb-8">
+            AI-focused engineer who ships working systems
           </h2>
-          <p className="text-body text-base sm:text-lg mb-8 leading-relaxed">
-            Focused on Generative AI, RAG, and full-stack AI development.
-          </p>
 
-          <div className="glass-card p-6 md:p-8">
-            <BioText text={aboutContent.bio} />
+          <div className="glass-card p-6 md:p-8 space-y-5 mb-8">
+            <div>
+              <h3 className="text-white font-semibold mb-1">Who I am</h3>
+              <p className="text-body leading-relaxed">{aboutContent.who}</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">What I specialize in</h3>
+              <p className="text-body leading-relaxed">{aboutContent.specialize}</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Technologies I work with</h3>
+              <p className="text-body leading-relaxed">{aboutContent.technologies}</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Systems I build</h3>
+              <p className="text-body leading-relaxed">{aboutContent.systems}</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Roles I am looking for</h3>
+              <p className="text-body leading-relaxed">{aboutContent.roles}</p>
+            </div>
           </div>
+
+          <ul className="grid sm:grid-cols-2 gap-3">
+            {whatIBuild.map((item) => (
+              <li
+                key={item.title}
+                className="glass-card p-4 flex items-start gap-3"
+              >
+                <span className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                  <Icon name={item.icon} size={16} className="text-accent" aria-hidden="true" />
+                </span>
+                <div>
+                  <h3 className="text-white font-medium text-sm mb-0.5">{item.title}</h3>
+                  <p className="text-body-muted text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </ScrollReveal>
       </div>
     </section>

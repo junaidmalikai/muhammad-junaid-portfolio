@@ -6,25 +6,27 @@ export default function ParticleBackground() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const ctx = canvas.getContext('2d')
     let animationId
     let particles = []
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = canvas.offsetWidth * dpr
+      canvas.height = canvas.offsetHeight * dpr
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
     const initParticles = () => {
-      const count = Math.min(50, Math.floor(canvas.offsetWidth / 25))
+      const count = Math.min(28, Math.floor(canvas.offsetWidth / 40))
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * canvas.offsetWidth,
         y: Math.random() * canvas.offsetHeight,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        radius: Math.random() * 1.2 + 0.4,
       }))
     }
 
@@ -41,19 +43,19 @@ export default function ParticleBackground() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.5)'
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.35)'
         ctx.fill()
 
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j]
           const dx = p.x - p2.x
           const dy = p.y - p2.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 120) {
+          const dist = Math.hypot(dx, dy)
+          if (dist < 100) {
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(p2.x, p2.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - dist / 120)})`
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - dist / 100)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -68,7 +70,6 @@ export default function ParticleBackground() {
     draw()
 
     const handleResize = () => {
-      ctx.setTransform(1, 0, 0, 1, 0, 0)
       resize()
       initParticles()
     }
@@ -83,7 +84,7 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-60"
+      className="absolute inset-0 w-full h-full pointer-events-none"
       aria-hidden="true"
     />
   )

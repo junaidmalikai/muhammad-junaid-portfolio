@@ -1,5 +1,5 @@
-import { Mail, Linkedin, Github, ArrowUp } from 'lucide-react'
-import { siteConfig, navLinks } from '../data/portfolio'
+import { navLinks, siteConfig } from '../data/portfolio'
+import Icon from './ui/Icon'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -11,37 +11,44 @@ export default function Footer() {
           <div className="text-center md:text-left min-w-0">
             <p className="text-white font-bold text-lg mb-1">{siteConfig.name}</p>
             <p className="text-body-muted text-sm max-w-md">
-              Associate AI Engineer — Generative AI, RAG, AI Agents, Python, FastAPI.
+              AI Engineer — Generative AI, RAG, Agentic AI, Python, FastAPI.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-3">
             <a
               href={`mailto:${siteConfig.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-all"
-              aria-label="Email"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
+              aria-label={`Email ${siteConfig.email}`}
             >
-              <Mail size={18} />
+              <Icon name="Mail" size={18} />
             </a>
             <a
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-all"
-              aria-label="LinkedIn"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
+              aria-label="LinkedIn profile"
             >
-              <Linkedin size={18} />
+              <Icon name="Linkedin" size={18} />
             </a>
             <a
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-all"
-              aria-label="GitHub"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
+              aria-label="GitHub profile"
             >
-              <Github size={18} />
+              <Icon name="Github" size={18} />
+            </a>
+            <a
+              href={siteConfig.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
+              aria-label="Download resume"
+            >
+              <Icon name="FileDown" size={18} />
             </a>
           </div>
         </div>
@@ -52,7 +59,7 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {navLinks.slice(0, 4).map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -63,10 +70,10 @@ export default function Footer() {
             ))}
             <a
               href="#hero"
-              className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-all"
+              className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
               aria-label="Back to top"
             >
-              <ArrowUp size={16} />
+              <Icon name="ArrowUp" size={16} />
             </a>
           </div>
         </div>

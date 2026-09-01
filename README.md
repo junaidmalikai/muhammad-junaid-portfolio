@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-**[Live Demo](ADD_LIVE_URL_HERE)** · **[GitHub](https://github.com/junaidmalikai)** · **[LinkedIn](https://www.linkedin.com/in/junaidmalik-dev)**
+**[Live Demo](ADD_LIVE_URL_HERE)** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
 
 </div>
 
@@ -39,7 +39,7 @@ This repository contains the source code for my personal portfolio: a fast, stat
 ![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-38BDF8)
 ![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C)
 ![Chroma](https://img.shields.io/badge/Chroma-Vector_DB-FF6F00)
-![OpenAI](https://img.shields.io/badge/LLMs-Multi--Provider-412991)
+![Python](https://img.shields.io/badge/Python-LLMs-3776AB)
 
 ### Backend *(project stack)*
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
@@ -94,7 +94,7 @@ This repository contains the source code for my personal portfolio: a fast, stat
 ### Installation
 
 ```bash
-git clone https://github.com/junaidmalikai/portfolio.git
+git clone https://github.com/muhammadjunaidai/muhammad-junaid-portfolio.git
 cd portfolio
 npm install
 ```
@@ -210,8 +210,8 @@ Edit `src/data/portfolio.js` to update:
 | | |
 |---|---|
 | **Email** | [junaidfazal08@gmail.com](mailto:junaidfazal08@gmail.com) |
-| **GitHub** | [github.com/junaidmalikai](https://github.com/junaidmalikai) |
-| **LinkedIn** | [linkedin.com/in/junaidmalik-dev](https://www.linkedin.com/in/junaidmalik-dev) |
+| **GitHub** | [github.com/muhammadjunaidai](https://github.com/muhammadjunaidai) |
+| **LinkedIn** | [linkedin.com/in/muhammadjunaidai](https://www.linkedin.com/in/muhammadjunaidai/) |
 | **Live Site** | [ADD LIVE URL HERE](ADD_LIVE_URL_HERE) |
 
 Open to **AI Engineer**, **LLM Engineer**, **AI Automation Engineer**, and **Python/FastAPI Developer** roles.

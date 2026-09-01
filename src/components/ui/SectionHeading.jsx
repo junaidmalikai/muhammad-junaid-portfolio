@@ -1,26 +1,37 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import Icon from './Icon'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-}
+export default function SectionHeading({
+  eyebrow,
+  title,
+  subtitle,
+  icon,
+  titleId,
+  className = '',
+}) {
+  const reduce = useReducedMotion()
 
-export default function SectionHeading({ eyebrow, title, subtitle, className = '' }) {
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
+      initial={reduce ? false : 'hidden'}
+      whileInView={reduce ? undefined : 'visible'}
       viewport={{ once: true, margin: '-80px' }}
-      variants={fadeUp}
-      transition={{ duration: 0.5 }}
-      className={`text-center mb-12 md:mb-16 ${className}`}
+      variants={{
+        hidden: { opacity: 0, y: 24 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.4 }}
+      className={`text-center mb-10 md:mb-14 ${className}`}
     >
       {eyebrow && (
-        <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
+        <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3 inline-flex items-center justify-center gap-2 w-full">
+          {icon && <Icon name={icon} size={14} aria-hidden="true" />}
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{title}</h2>
+      <h2 id={titleId} className="text-3xl sm:text-4xl font-bold text-white mb-4">
+        {title}
+      </h2>
       {subtitle && (
         <p className="text-body max-w-2xl mx-auto text-base sm:text-lg">{subtitle}</p>
       )}
@@ -29,12 +40,14 @@ export default function SectionHeading({ eyebrow, title, subtitle, className = '
 }
 
 export function ScrollReveal({ children, className = '', delay = 0 }) {
+  const reduce = useReducedMotion()
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y: 24 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.4, delay: reduce ? 0 : delay }}
       className={className}
     >
       {children}
