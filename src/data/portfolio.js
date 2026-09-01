@@ -10,7 +10,8 @@ export const siteConfig = {
   github: 'https://github.com/muhammadjunaidai',
   githubHandle: 'github.com/muhammadjunaidai',
   linkedin: 'https://www.linkedin.com/in/muhammadjunaidai/',
-  resumeUrl: '/resume.html',
+  resumeUrl: '/Muhammad%20Junaid.pdf',
+  resumeFileName: 'Muhammad Junaid.pdf',
   location: 'Lahore, Pakistan',
   careerObjective:
     "I'm looking for an Associate AI Engineer / Junior AI Engineer role working on Generative AI, RAG, LLMs, AI Agents, Machine Learning, Python, and FastAPI — and growing into a strong AI Engineer.",

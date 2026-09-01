@@ -151,6 +151,7 @@ export default function Contact() {
                 <li>
                   <a
                     href={siteConfig.resumeUrl}
+                    download={siteConfig.resumeFileName}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-body hover:text-accent transition-colors group"

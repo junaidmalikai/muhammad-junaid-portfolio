@@ -71,6 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2 flex-shrink-0">
           <a
             href={siteConfig.resumeUrl}
+            download={siteConfig.resumeFileName}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary text-sm py-2.5 px-4"
@@ -120,6 +121,7 @@ export default function Navbar() {
               <li className="pt-2 flex flex-col gap-2">
                 <a
                   href={siteConfig.resumeUrl}
+                  download={siteConfig.resumeFileName}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary w-full text-center"

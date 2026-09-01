@@ -43,6 +43,7 @@ export default function Footer() {
             </a>
             <a
               href={siteConfig.resumeUrl}
+              download={siteConfig.resumeFileName}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-body-muted hover:text-accent hover:border-accent/30 transition-colors"
