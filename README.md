@@ -10,7 +10,6 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-0055FF?logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
 **[Live Demo](https://muhammad-junaid-portfolio-gray.vercel.app/)** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
 
