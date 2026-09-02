@@ -69,20 +69,6 @@ This repository contains the source code for my personal portfolio: a fast, stat
 
 ---
 
-## Screenshots
-
-> Replace placeholders with your own screenshots after deployment.
-
-### Desktop
-![Desktop view](./docs/screenshots/desktop.png)
-*Full homepage — hero, projects, and contact sections*
-
-### Mobile
-![Mobile view](./docs/screenshots/mobile.png)
-*Responsive layout on small screens*
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -100,25 +86,13 @@ npm install
 
 ### Environment variables
 
-Copy the example env file and add your Formspree form ID:
 
-```bash
-cp .env.example .env
-```
-
-```env
-VITE_FORMSPREE_FORM_ID=your_form_id_here
-```
-
-Get a free form ID at [formspree.io](https://formspree.io).
 
 ### Run locally
 
 ```bash
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### Build for production
 
