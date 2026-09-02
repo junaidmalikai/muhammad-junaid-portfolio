@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-**[Live Demo](ADD_LIVE_URL_HERE)** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
+**[Live Demo]([ADD_LIVE_URL_HERE](https://muhammad-junaid-portfolio-gray.vercel.app/))** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
 
 </div>
 
@@ -212,7 +212,7 @@ Edit `src/data/portfolio.js` to update:
 | **Email** | [junaidfazal08@gmail.com](mailto:junaidfazal08@gmail.com) |
 | **GitHub** | [github.com/muhammadjunaidai](https://github.com/muhammadjunaidai) |
 | **LinkedIn** | [linkedin.com/in/muhammadjunaidai](https://www.linkedin.com/in/muhammadjunaidai/) |
-| **Live Site** | [ADD LIVE URL HERE](ADD_LIVE_URL_HERE) |
+| **Live Site** | [Live Demo](https://muhammad-junaid-portfolio-gray.vercel.app/) |
 
 Open to **AI Engineer**, **LLM Engineer**, **AI Automation Engineer**, and **Python/FastAPI Developer** roles.
 
