@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-**[Live Demo]([ADD_LIVE_URL_HERE](https://muhammad-junaid-portfolio-gray.vercel.app/))** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
+**[Live Demo]([https://muhammad-junaid-portfolio-gray.vercel.app/](https://muhammad-junaid-portfolio-gray.vercel.app/))** · **[GitHub](https://github.com/muhammadjunaidai)** · **[LinkedIn](https://www.linkedin.com/in/muhammadjunaidai/)**
 
 </div>
 
